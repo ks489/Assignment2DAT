@@ -1,0 +1,6 @@
+6721,org.apache.commons.net.SocketClient,setDefaultPort
+17534,org.apache.commons.net.ftp.FTPClient,__initDefaults
+6722,org.apache.commons.net.SocketClient,setConnectTimeout
+1002341696,org.apache.commons.net.SocketClient,_connect
+1004485547,org.apache.commons.net.SocketClient,connect
+1006513965,org.apache.commons.net.ftp.TestConnectTimeout,testConnectTimeout
