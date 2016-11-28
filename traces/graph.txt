@@ -1,1 +1,1 @@
-dot -Tpdf methodCalls.dot > methodCalls.pdf
+dot -Tpdf methodCalls.dot -o methodCalls.pdf -Gsize=8
