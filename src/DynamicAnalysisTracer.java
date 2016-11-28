@@ -24,7 +24,7 @@ public class DynamicAnalysisTracer {
 		List<String> executionData = tHelper.getFileRecords(executionInputFileName, fileDirectory);
 		
 		//Sort out list for graph outputs
-		//List<String> methodExecutionTimes = tHelper.getCsvMethodExecutionAverage(executionData);
+		List<String> methodExecutionTimes = tHelper.getCsvMethodExecutionAverage(executionData);
 		//List<String> classExecutionTimes = tHelper.GetCsvClassExecutionAverage(executionData);
 		
 		//Convert lists into their respective output types
