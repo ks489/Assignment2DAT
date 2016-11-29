@@ -8,7 +8,6 @@ public class DynamicAnalysisTracer {
 		
 		String[] methodHeaders = new String[] {
 			"ExecutionTime",
-			"Class",
 			"Method"
 		};
 		String[] classHeaders = new String[] {
@@ -21,16 +20,21 @@ public class DynamicAnalysisTracer {
 		String fileDirectory = "./traces/";
 		
 		TraceHelper tHelper = new TraceHelper();
-		List<String> executionData = tHelper.getFileRecords(executionInputFileName, fileDirectory);
+		List<String> csvData = tHelper.getFileRecords(executionInputFileName, fileDirectory);
 		
 		//Sort out list for graph outputs
-		List<String> methodExecutionTimes = tHelper.getCsvMethodExecutionAverage(executionData);
-		//List<String> classExecutionTimes = tHelper.GetCsvClassExecutionAverage(executionData);
-		
-		//Convert lists into their respective output types
+		List<String> methodExecutionTimes = tHelper.getCsvMethodExecutionAverage(csvData);
+		List<String> classExecutionTimes = tHelper.GetCsvClassExecutionAverage(csvData);
+
+		List<String> methodCount = tHelper.getCsvMethodExecutionCount(csvData);
+		List<String> classCount = tHelper.GetCsvClassExecutionCount(csvData);
 		
 		TraceConverterHelper converter = new TraceConverterHelper();
-		converter.convertLogToCSV(methodHeaders, executionInputFileName, executionOutputFileName, fileDirectory);
+		converter.convertLogToCSV(methodHeaders, methodExecutionTimes, "methodTimes", fileDirectory);
+		converter.convertLogToCSV(classHeaders, classExecutionTimes, "classTimes", fileDirectory);
+		
+		converter.convertLogToCSV(methodHeaders, methodCount, "methodCount", fileDirectory);
+		converter.convertLogToCSV(classHeaders, classCount, "classCount", fileDirectory);
 		
 		String callInputFileName = "totalTmdcTrace";
 		String callOutputFileName = "methodCalls";

@@ -76,6 +76,58 @@ public class TraceHelper {
 		return returnList;
 	}
 	
+	public List<String> GetCsvClassExecutionCount(List<String> data){
+		List<String> classNameList = new ArrayList<String>();
+		List<Integer> classCount = new ArrayList<Integer>();
+		
+		List<String> returnList = new ArrayList<String>();
+		
+		List<String> newList = new ArrayList<String>();
+		for (String row : data) {
+			String[] items = row.split(",");
+			
+			if(!classNameList.contains(items[1])){
+				classNameList.add(items[1]);				
+				classCount.add(1);
+				
+			}else{
+				int position = classNameList.indexOf(items[1]);
+				classCount.set(position, classCount.get(position) + 1);				
+			}						
+		}
+		for (int i = 0; i < classNameList.size(); i++) {			
+			int count = classCount.get(i);
+			returnList.add(count + "," +  classNameList.get(i));
+		}
+		return returnList;
+	}
+	
+	public List<String> getCsvMethodExecutionCount(List<String> data){	
+		List<String> methodNameList = new ArrayList<String>();
+		List<Integer> classCount = new ArrayList<Integer>();
+		
+		List<String> returnList = new ArrayList<String>();
+		
+		List<String> newList = new ArrayList<String>();
+		for (String row : data) {
+			String[] items = row.split(",");
+			
+			if(!methodNameList.contains(items[2])){
+				methodNameList.add(items[2]);
+				classCount.add(1);
+				
+			}else{
+				int position = methodNameList.indexOf(items[2]);
+				classCount.set(position, classCount.get(position) + 1);				
+			}						
+		}
+		for (int i = 0; i < methodNameList.size(); i++) {
+			int count = classCount.get(i);
+			returnList.add(count + "," +  methodNameList.get(i));
+		}
+		return returnList;
+	}
+	
 	public List<String> getFileRecords(String inputFileName, String fileDirectory){
 		List<String> records = new ArrayList<String>();
 		try {

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TraceConverterHelper {
 	
-	/*public void convertLogToCSV(String[] headers, List<String> inputData,  String outputFileName, String fileDirectory){
+	public void convertLogToCSV(String[] headers, List<String> inputData,  String outputFileName, String fileDirectory){
 		try {
 
 			BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileDirectory + outputFileName + ".csv"));
@@ -32,7 +32,7 @@ public class TraceConverterHelper {
 		}		
 	}
 	
-	public void convertLogToDigraph(List<String> inputData, String outputFileName, String fileDirectory){
+	/*public void convertLogToDigraph(List<String> inputData, String outputFileName, String fileDirectory){
 		List<String> nonDuplicateRecords = new ArrayList<String>();
 		try {
 			//Get the file records
@@ -70,7 +70,7 @@ public class TraceConverterHelper {
 		}		
 	}	*/
 	
-	public void convertLogToCSV(String[] headers, String inputFileName, String outputFileName, String fileDirectory){
+	/*public void convertLogToCSV(String[] headers, String inputFileName, String outputFileName, String fileDirectory){
 		List<String> records = new ArrayList<String>();
 		try {
 			//Adding headers to the CSV file
@@ -97,7 +97,7 @@ public class TraceConverterHelper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
-	}
+	}*/
 	
 	public void convertLogToDigraph(String inputFileName, String outputFileName, String fileDirectory){
 		List<String> records = new ArrayList<String>();
